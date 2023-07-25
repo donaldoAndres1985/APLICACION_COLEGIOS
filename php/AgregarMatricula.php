@@ -42,7 +42,12 @@ try {
                                                                   ':idGrado' => $_POST['grado'] , 
                                                                   ':grupo' => $_POST['grupo'] , 
 																  ':anoLectivo' => $_POST['anoLectivo'])) ) ? 'Alumno matriculado correctamente.' : 'Algo salió mal. No se puede agregar matricula.';	
-				
+					$_SESSION['message'] = ( $stmt->execute(array(':idAlumnos' => $_POST['alumno'] , 
+																  ':idColegios' => $_POST['colegio'] , 
+                                                                  ':idJornada' => $_POST['jornada'] , 
+                                                                  ':idGrado' => $_POST['grado'] , 
+                                                                  ':grupo' => $_POST['grupo'] , 
+																  ':anoLectivo' => $_POST['anoLectivo'])) ) ? 'Alumno matriculado correctamente.' : 'Algo salió mal. No se puede agregar matricula.';					
 				}catch(PDOException $e){
 					$_SESSION['message'] = $e->getMessage();
 				}
